@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: deskly-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: deskly
+      POSTGRES_USER: deskly_user
+      POSTGRES_PASSWORD: deskly_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - deskly_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  deskly_postgres_data:
